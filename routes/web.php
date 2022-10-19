@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddCategoryController;
 use App\Http\Controllers\AddPurchaseController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManageBrandController;
 use App\Http\Controllers\ManageCategoryController;
@@ -13,7 +14,9 @@ use App\Http\Controllers\POSController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\SelectProductController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('pos', [POSController::class, 'index'])->name('pos');
     Route::get('sales', [SalesController::class, 'index'])->name('sales');
-    Route::get('returns', [ReturnController::class, 'index'])->name('returns');
+    // Route::get('returns', [ReturnController::class, 'index'])->name('returns');
     Route::get('addpurchase', [AddPurchaseController::class, 'index'])->name('addpurchase');
     Route::get('managpurchase', [ManagPurchaseController::class, 'index'])->name('managpurchase');
     Route::get('stock', [StockController::class, 'index'])->name('stock');
@@ -58,4 +61,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('getProductIdData',[ManageProduct::class,'getProductIdData'])->name('getProductIdData');
     Route::post('productUpdate',[ManageProduct::class,'productUpdate'])->name('productUpdate');
     Route::post('product-delete',[ManageProduct::class,'productdelete'])->name('productdelete');
+
+
+    Route::post('supplier-create',[SupplierController::class,'index'])->name('suppliercreate');
+    Route::get('get-supplier',[SupplierController::class,'getSupplier'])->name('getSupplier');
+
+    Route::get('get-product',[SupplierController::class,'getproduct'])->name('getproduct');
+    Route::post('selectproduct',[SelectProductController::class,'index'])->name('selectproduct');
+    Route::post('get-selectproduct',[SelectProductController::class,'getselectproduct']);
+    Route::post('delteSelectval',[SelectProductController::class,'delteSelectval']);
+    
+    Route::get('/paymeny-create',[CreateController::class,'index']);
+    Route::get('purchases-details',[ManagPurchaseController::class,'details']);
+
+
 });

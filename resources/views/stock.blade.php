@@ -21,36 +21,14 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row mb-2">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Select a Product">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Product Code">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Product Name">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Select Category">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Select Brand">
-                        </div>
-                    </div>
-                    <button class="btn btn-success">Filter</button>
-                    <button class="btn btn-primary">Reset</button>
-                </div>
-            </div>
+            
 
             <div class="card">
                 <div class="card-header">
                     Product Stock
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered bg-primary">
+                    <table class="table table-bordered ">
                         <thead>
                             <tr class="bg-primary">
                                 <th>#</th>
@@ -58,15 +36,34 @@
                                 <th>Product</th>
                                 <th>Category</th>
                                 <th>Price</th>
-                                <th>Purchased</th>
-                                <th>Sold</th>
-                                <th>Damaged</th>
-                                <th>Returned</th>
+                                <th>Buy Price</th>
                                 <th>Available Stock</th>
-                                <th>Sell Value</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach($products as $product)
+                            <tr>
+                                <td>{{++$i}} </td>
+                                <td>
+                                    @if($product->image)
+                                    <img style="width: 50px;" src="{{ $$product->image }}" alt="">
+                                        @else
+                                        <img style="width: 50px;" src="/projectimg/noimage.png" alt="">
+                                    @endif
+                                </td>
+                                <td>{{$product->name}} </td>
+                                <td>{{$product->category}} </td>
+                                <td>{{$product->price}} </td>
+                                <td>{{$product->cost}} </td>
+                                <td>{{$product->stock}} </td>
+                            </tr>
+
+
+                            @endforeach
+                        </tbody>
                     </table>
+                    {!! $products->links() !!}
+
                 </div>
             </div>
         </div><!-- /.container-fluid -->

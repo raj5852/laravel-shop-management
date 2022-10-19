@@ -21,66 +21,43 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" placeholder="Bill Number" class="form-control">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="Start Date" class="form-control">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="End Date" class="form-control">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="End Date" class="form-control">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="Select Produt" class="form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <div class="card">
                 <div class="card-header">
                     Purchases
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered bg-primary">
+                    <table class="table table-bordered ">
                         <thead>
                             <tr class="bg-primary">
                                 <th>#</th>
                                 <th>Bill No.</th>
                                 <th>Supplier</th>
                                 <th>Purchase Date</th>
-                                <th>Items</th>
+                               
                                 <th>Payable</th>
-                                <th>Paid</th>
-                                <th>Due</th>
+                                
                                 <th class="print_hidden">Actions</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
-                        <tfoot>
-                            <tr class="bg-dark">
-                                <th colspan="5"></th>
-                                <th>
-                                    <strong>17,423,000.00
-                                        Tk</strong>
-                                </th>
-                                <th>
-                                    <strong>17,417,000.00 Tk</strong>
-                                </th>
-                                <th>
-                                    <strong>6,000.00 Tk</strong>
-                                </th>
+                        <tbody>
+                           @foreach($purchase as $mnsps)
+                           <tr>
+                            <td>{{ ++$i }}</td>
+                            <td>{{$mnsps->billno}} </td>
+                            <td>{{$mnsps->name}} </td>
+                            <td>{{$mnsps->date}} </td>
+                            <td>{{$mnsps->payable}} </td>
+                            <td><a href="purchases-details?id={{ $mnsps->id }}" class="btn btn-success">View Details</a> </td>
+                           </tr>
 
-                                <th colspan="2"></th>
 
-                            </tr>
-                        </tfoot>
+
+                           @endforeach
+                        </tbody>
+                        
                     </table>
+                    {!! $purchase->links() !!}
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -88,5 +65,14 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+@endsection
+
+@section('js')
+<script>
+    $("#purchaseli").addClass('menu-open')
+    $("#purchaseA").addClass('active')
+</script>
+
 
 @endsection

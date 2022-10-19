@@ -36,12 +36,7 @@
              <p>Sales</p>
            </a>
          </li>
-         <li class="nav-item">
-           <a href="{{ route('returns') }}" class="nav-link {{ request()->is('returns')?'active':'' }} ">
-             <i class="nav-icon fas fa-th"></i>
-             <p>Returns</p>
-           </a>
-         </li>
+        
          <li class="nav-item" id="purchaseli">
            <a href="#" class="nav-link " id="purchaseA">
              <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -58,7 +53,7 @@
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{ route('managpurchase') }}" class="nav-link ">
+               <a href="{{ route('managpurchase') }}" class="nav-link {{ request()->is('managpurchase')?'active':'' }}">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Manage Purchase</p>
                </a>
