@@ -1,7 +1,7 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
    <!-- Brand Logo -->
-   <a href="/" class="brand-link text-center">
+   <a href="/home" class="brand-link text-center">
 
      <span class="brand-text font-weight-light"><b>User</b></span>
    </a>
@@ -32,20 +32,20 @@
          </li>
          <li class="nav-item">
            <a href="{{ route('sales') }}" class="nav-link {{ request()->is('sales')?'active':'' }} ">
-             <i class="nav-icon fas fa-th"></i>
+           <i class='fas fa-business-time'></i>
              <p>Sales</p>
            </a>
          </li>
-        
+
          <li class="nav-item" id="purchaseli">
            <a href="#" class="nav-link " id="purchaseA">
-             <i class="nav-icon fas fa-tachometer-alt"></i>
+           <i class='far fa-folder-open'></i>
              <p>
                Purchase
                <i class="right fas fa-angle-left"></i>
              </p>
            </a>
-           <ul class="nav nav-treeview" >
+           <ul class="nav nav-treeview">
              <li class="nav-item">
                <a href="{{ route('addpurchase') }}" class="nav-link {{ request()->is('addpurchase')?'active':'' }}">
                  <i class="far fa-circle nav-icon"></i>
@@ -63,20 +63,20 @@
          </li>
          <li class="nav-item">
            <a href="{{ route('stock') }}" class="nav-link {{ request()->is('stock')?'active':'' }} ">
-             <i class="nav-icon fas fa-th"></i>
+           <i class='fas fa-cart-arrow-down'></i>
              <p>Stock</p>
            </a>
          </li>
 
          <li class="nav-item" id="productli">
            <a href="#" class="nav-link" id="productA">
-             <i class="nav-icon fas fa-tachometer-alt"></i>
+           <i class='far fa-folder-open'></i>
              <p>
                Products
                <i class="right fas fa-angle-left"></i>
              </p>
            </a>
-           <ul class="nav nav-treeview" >
+           <ul class="nav nav-treeview">
              <li class="nav-item">
                <a href="{{ route('addproduct') }}" class="nav-link {{ request()->is('addproduct')?'active':'' }}">
                  <i class="far fa-circle nav-icon"></i>
@@ -96,13 +96,13 @@
 
          <li class="nav-item" id="categoryli">
            <a href="#" class="nav-link" id="categoryA">
-             <i class="nav-icon fas fa-tachometer-alt"></i>
+           <i class='far fa-folder-open'></i>
              <p>
                Categorys
                <i class="right fas fa-angle-left"></i>
              </p>
            </a>
-           <ul class="nav nav-treeview" >
+           <ul class="nav nav-treeview">
              <li class="nav-item">
                <a href="{{ route('addcategory') }}" class="nav-link {{ request()->is('addcategory')?'active':'' }}">
                  <i class="far fa-circle nav-icon"></i>
@@ -119,15 +119,15 @@
            </ul>
          </li>
 
-         <li class="nav-item  " id="brandli" >
+         <li class="nav-item  " id="brandli">
            <a href="#" class="nav-link " id="brandA">
-             <i class="nav-icon fas fa-tachometer-alt"></i>
+           <i class='far fa-folder-open'></i>
              <p>
                Brands
                <i class="right fas fa-angle-left"></i>
              </p>
            </a>
-           <ul class="nav nav-treeview" >
+           <ul class="nav nav-treeview">
              <li class="nav-item">
                <a href="{{ route('newbrand') }}" class="nav-link {{ request()->is('newbrand')?'active':'' }}">
                  <i class="far fa-circle nav-icon"></i>
@@ -142,6 +142,12 @@
              </li>
 
            </ul>
+         </li>
+         <li class="nav-item">
+           <a href="/logout" class="nav-link ">
+           <i class="fas fa-sign-out-alt"></i>
+             <p>Logout</p>
+           </a>
          </li>
        </ul>
      </nav>

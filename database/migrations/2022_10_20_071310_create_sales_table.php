@@ -16,6 +16,7 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->string('userid');
+            $table->string('invoice')->nullable();
             $table->string('name');
             $table->string('amount');
             $table->string('status')->default('Paid');

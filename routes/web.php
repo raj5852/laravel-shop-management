@@ -22,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::view('/', 'login')->name('login');
+Route::view('/', 'login')->name('login')->middleware('guest');
+Route::view('/register', 'register')->name('register')->middleware('guest');
+Route::post('custom-register',[LoginController::class,'customRegistration'])->name('customregister');
+
 Route::post('login-post', [LoginController::class, 'customLogin'])->name('loginpost');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -88,4 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('inputDataDelete',[PosSelectController::class,'inputDataDelete']);
 
     Route::post('customer-payment',[PosSelectController::class,'payment']);
+    Route::get('get-sales',[SalesController::class,'getData'])->name('getsales');
+    Route::get('sales-details',[SalesController::class,'selldetails'])->name('selldetails');
+    Route::get('/logout',[LoginController::class,'logout']);
 });

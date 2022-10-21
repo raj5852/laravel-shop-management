@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class PosSelectController extends Controller
 {
-    //
+    
     function index(Request $request)
     {
         $select = Posselect::where(['productid' => $request->id, 'issell' => 0])->first();
@@ -68,6 +68,7 @@ class PosSelectController extends Controller
             $sales = new Sale();
             $sales->userid = auth()->user()->id;
             $sales->name = $request->name;
+            $sales->invoice = time();
             $sales->amount = $request->total;
             $sales->save();
             $saleId = $sales->id;
