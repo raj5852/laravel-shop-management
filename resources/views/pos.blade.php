@@ -127,7 +127,7 @@
                                 <label for="">Email</label>
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>
 
-                                <label for="">Phome</label>
+                                <label for="">Phone</label>
                                 <input type="number" name="phone" class="form-control" placeholder="Phone" required>
 
                                 <label for="">Address</label>
