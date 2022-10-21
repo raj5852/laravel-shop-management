@@ -351,7 +351,7 @@
                         // console.log('success')
                         if (data) {
                             $("#alerBox").show()
-                            // window.location.href = "/pos";
+                             window.location.href = "/pos";
                             console.log(data)
 
                         }
