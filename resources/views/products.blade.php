@@ -75,7 +75,7 @@
                                 <select name="category" class="form-control itemName" required>
                                     <option value='0'>- Select A Category -</option>
                                 </select>
-                                <button class="ml-2 btn btn-primary btn-sm" id="addProduct">Add Category </button>
+                                <button type="button" class="ml-2 btn btn-primary btn-sm" id="addProduct">Add Category </button>
                             </div>
 
                         </div>
@@ -86,7 +86,7 @@
                                 <select name="brand" class="form-control brandName">
                                     <option value='0'>- Select A Brand -</option>
                                 </select>
-                                <button class="ml-2 btn btn-primary btn-sm" id="addBrand">Add Brand </button>
+                                <button type="button" class="ml-2 btn btn-primary btn-sm" id="addBrand">Add Brand </button>
                             </div>
 
                         </div>

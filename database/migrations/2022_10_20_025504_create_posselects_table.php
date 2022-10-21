@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomersTable extends Migration
+class CreatePosselectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('posselects', function (Blueprint $table) {
             $table->id();
             $table->string('userid');
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->text('address')->nullable();
+            $table->string('productid');
+            $table->string('name');
+            $table->string('qnt');
+            $table->string('price');
+            $table->string('subt');
+            $table->string('issell')->default(0);
+            $table->string('saleid')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('posselects');
     }
 }

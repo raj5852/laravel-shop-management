@@ -46,7 +46,7 @@
                                 <td>{{++$i}} </td>
                                 <td>
                                     @if($product->image)
-                                    <img style="width: 50px;" src="{{ $$product->image }}" alt="">
+                                    <img style="width: 50px;" src="{{ $product->image }}" alt="">
                                         @else
                                         <img style="width: 50px;" src="/projectimg/noimage.png" alt="">
                                     @endif

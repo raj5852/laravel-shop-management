@@ -11,6 +11,7 @@ use App\Http\Controllers\ManageProduct;
 use App\Http\Controllers\ManagPurchaseController;
 use App\Http\Controllers\NewBrandController;
 use App\Http\Controllers\POSController;
+use App\Http\Controllers\PosSelectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\SalesController;
@@ -43,6 +44,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //ajax customer request
     Route::get('get-customer', [POSController::class, 'getCustomer'])->name('getcustomer');
+    Route::post('addCustomerPost',[POSController::class,'addCustomerPost'])->name('addCustomerPost');
+    Route::get('getProductajax',[POSController::class,'getData'])->name('getProductajax');
+
+
     Route::post('add-brand', [NewBrandController::class, 'addbrand'])->name('addbrand');
     Route::post('brandUpdate',[ManageBrandController::class,'update'])->name('brandUpdate');
     Route::get('brand-delete/{id}',[ManageBrandController::class,'delete']);
@@ -73,6 +78,14 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/paymeny-create',[CreateController::class,'index']);
     Route::get('purchases-details',[ManagPurchaseController::class,'details']);
+    // Route::get('')
 
 
+    Route::post('posSelct',[PosSelectController::class,'index']);
+    Route::post('posSelctget',[PosSelectController::class,'getData']);
+
+    Route::post('inputUpdate',[PosSelectController::class,'update']);
+    Route::post('inputDataDelete',[PosSelectController::class,'inputDataDelete']);
+
+    Route::post('customer-payment',[PosSelectController::class,'payment']);
 });
